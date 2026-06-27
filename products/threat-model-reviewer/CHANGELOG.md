@@ -4,6 +4,20 @@ All notable changes to **Threat Model Reviewer** are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and the
 project aims to follow [Semantic Versioning](https://semver.org/).
 
+## [1.0.1] — 2026-06-28
+
+### Added
+- **MSI installer** (`…-x64.msi`) built with WiX — a single, dual-scope installer that lets
+  the user choose **per-machine** (all users / Program Files) or **per-user** (no admin) at
+  install time, with a Start-Menu shortcut and *Apps & features* entry.
+- **Authenticode signing** of every artifact (portable `.exe`, MSI, installer `.exe`, MSIX).
+  The build pipeline signs with your CA/EV certificate via `-CertPfx` / `-CertThumbprint`;
+  otherwise a self-signed certificate is used.
+
+### Notes
+- Artifacts are currently **self-signed**, so SmartScreen still warns on first run until a
+  CA-issued (ideally EV) certificate or Azure Trusted Signing is used. See `docs/INSTALL.md`.
+
 ## [1.0.0] — 2026-06-27
 
 First public release.
@@ -34,4 +48,5 @@ First public release.
 - **Packaging**: portable self-contained `.exe` (zip), Inno Setup installer, and a signed
   MSIX package.
 
+[1.0.1]: https://github.com/Rohithreddy7123/app-releases/releases/tag/threat-model-reviewer-v1.0.1
 [1.0.0]: https://github.com/Rohithreddy7123/app-releases/releases/tag/threat-model-reviewer-v1.0.0

@@ -14,38 +14,58 @@ attached to every release on the
 
 ---
 
-## Option 1 — Portable (zip) — *simplest, recommended*
+## Option 1 — MSI installer — *recommended*
+
+1. Download `ThreatModelReviewer-vX.Y.Z-x64.msi`.
+2. Run it. The wizard lets you choose **"Install for all users"** (per-machine, into
+   Program Files — needs admin once) or **"Install just for me"** (per-user, into your
+   profile — no admin). It adds a Start-Menu shortcut and an entry in *Apps & features*.
+3. If **SmartScreen** warns (see [About the SmartScreen warning](#about-the-smartscreen-warning)),
+   click **More info → Run anyway**.
+
+## Option 2 — Portable (zip)
 
 1. Download `ThreatModelReviewer-vX.Y.Z-win-x64-portable.zip`.
-2. Right-click → **Properties** → tick **Unblock** (clears the "downloaded from the
-   internet" mark), then **Extract All** to a folder you control (e.g. `C:\Apps\ThreatModelReviewer`).
+2. Right-click → **Properties** → tick **Unblock**, then **Extract All** to a folder you
+   control (e.g. `C:\Apps\ThreatModelReviewer`).
 3. Run **`ThreatModelReviewer.exe`**.
 
 > Keep the files together — `ThreatModelReviewer.exe` needs the folder beside it
 > (including `runtimes\win-x64\native\copilot.exe`, which powers the Copilot features).
 
-## Option 2 — Installer (`Setup.exe`)
+## Option 3 — Inno Setup installer (`Setup.exe`)
 
-1. Download `ThreatModelReviewer-vX.Y.Z-setup.exe`.
-2. Run it. It installs **per-user** (no administrator rights required), adds a Start-Menu
-   shortcut, and registers an uninstall entry.
-3. If **SmartScreen** shows "Windows protected your PC", click **More info → Run anyway**
-   (the build isn't Authenticode-signed yet, so its reputation is still building).
+A per-user installer (no admin). Download `…-setup.exe` and run it. An alternative to the
+MSI if you prefer a single per-user `.exe`.
 
-## Option 3 — MSIX package — *experimental*
+## Option 4 — MSIX package — *experimental*
 
 The MSIX is signed with a **self-signed** certificate, so you must trust it first:
 
-1. Download `ThreatModelReviewer-vX.Y.Z-x64.msix` **and** `ThreatModelReviewer-publisher.cer`.
-2. Right-click `ThreatModelReviewer-publisher.cer` → **Install Certificate** →
-   **Local Machine** → **Place all certificates in the following store** →
-   **Trusted People** → Finish. (This step needs administrator rights.)
-3. Double-click the `.msix` and click **Install**.
+1. Download `…-x64.msix` **and** `ThreatModelReviewer-publisher.cer`.
+2. Right-click `…-publisher.cer` → **Install Certificate** → **Local Machine** →
+   **Place all certificates in the following store** → **Trusted People** → Finish.
+   *(needs admin)*
+3. Double-click the `.msix` and **Install**.
 
 > **Heads-up:** under MSIX the app runs in a packaged container. The Copilot SDK spawns a
-> CLI child process and makes network calls, which can hit container/filesystem
-> restrictions — so **AI features may be limited under MSIX**. For full Copilot support,
-> prefer the **portable** or **installer** options.
+> CLI child process and makes network calls, which can hit container restrictions — so
+> **AI features may be limited under MSIX**. For full Copilot support, prefer the **MSI**
+> or **portable** options.
+
+---
+
+## About the SmartScreen warning
+
+The downloads are **Authenticode-signed**, but with a **self-signed** certificate for now —
+so Microsoft Defender SmartScreen may still show *"Windows protected your PC"* on first run.
+That's expected; click **More info → Run anyway**. The app is safe (the source is reviewed
+and the deterministic engine runs locally).
+
+SmartScreen only stops warning when the binaries are signed with a certificate from a
+**trusted Certificate Authority** (ideally **EV**, or **Azure Trusted Signing**). That
+requires identity enrollment + a small cost, so it's planned rather than shipped. Once a CA
+certificate is in place, the warning disappears for everyone — no change needed on your end.
 
 ---
 
@@ -62,9 +82,8 @@ The first time you use an AI feature, the app uses your **GitHub Copilot** seat:
 
 ## Uninstalling
 
+- **MSI / Inno installer:** *Settings → Apps → Threat Model Reviewer → Uninstall*.
 - **Portable:** delete the folder.
-- **Installer:** *Settings → Apps → Threat Model Reviewer → Uninstall* (or the Start-Menu
-  uninstall shortcut).
 - **MSIX:** right-click the Start-Menu tile → **Uninstall**.
 
 ## Troubleshooting
