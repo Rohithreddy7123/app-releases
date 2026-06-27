@@ -8,7 +8,7 @@ this repo hosts the **releases**, the **docs**, and the **issues**.
 
 | App | What it does | Docs | Latest |
 | --- | --- | --- | --- |
-| **Threat Model Reviewer** | Reviews, fixes, analyzes & creates Microsoft Threat Modeling Tool (`.tm7`) threat models, powered by your GitHub Copilot seat. The verdict & 0–100 score are deterministic. | [docs](products/threat-model-reviewer/) | [Releases ›](https://github.com/Rohithreddy7123/app-releases/releases) |
+| **Threat Model Reviewer** | Reviews, fixes, analyzes & creates Microsoft Threat Modeling Tool (`.tm7`) threat models, powered by your GitHub Copilot seat. The verdict & 0–100 score are deterministic. | [docs](products/threat-model-reviewer/) | [Releases](https://github.com/Rohithreddy7123/app-releases/releases) |
 
 > More apps will be added here over time, each under `products/<app>/` with its own docs and
 > its own product-prefixed release tags.
