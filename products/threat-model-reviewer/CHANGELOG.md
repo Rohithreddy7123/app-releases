@@ -4,6 +4,15 @@ All notable changes to **Threat Model Reviewer** are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and the
 project aims to follow [Semantic Versioning](https://semver.org/).
 
+## [1.0.2] — 2026-06-28
+
+### Added
+- **In-app update check** — on startup (and via a "Check for updates" link in the status
+  bar) the app checks the release hub for a newer build and shows a dismissible banner with
+  **Download / Skip this version / Later**. It's notify-only (never auto-applies), works for
+  every install format, fails soft when offline, and can be disabled in
+  `%APPDATA%\ThreatModelReviewer\update.json`.
+
 ## [1.0.1] — 2026-06-28
 
 ### Added
@@ -48,5 +57,6 @@ First public release.
 - **Packaging**: portable self-contained `.exe` (zip), Inno Setup installer, and a signed
   MSIX package.
 
+[1.0.2]: https://github.com/Rohithreddy7123/app-releases/releases/tag/threat-model-reviewer-v1.0.2
 [1.0.1]: https://github.com/Rohithreddy7123/app-releases/releases/tag/threat-model-reviewer-v1.0.1
 [1.0.0]: https://github.com/Rohithreddy7123/app-releases/releases/tag/threat-model-reviewer-v1.0.0
