@@ -4,6 +4,21 @@ All notable changes to **Threat Model Reviewer** are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and the
 project aims to follow [Semantic Versioning](https://semver.org/).
 
+## [1.0.3] — 2026-06-28
+
+### Added
+- **About dialog** — a proper About page (header **Help ▾ → About**) showing the app version,
+  publisher, what the app does, the **deterministic-verdict promise** (the verdict and 0–100
+  score come from the rubric engine, never AI; Copilot is advisory; models are reviewed
+  locally), the MIT license, and direct links to the repo, issues, and releases.
+- **Help menu** in the header with direct links — **User guide**, **Installation guide**,
+  **FAQ**, **Report an issue**, **View all releases**, **View on GitHub**, and **Check for
+  updates** — so help and the issue tracker are one click away.
+
+### Changed
+- Header subtitle now reads "Review, fix, **analyze** & create Microsoft Threat Modeling Tool
+  (.tm7) threat models" — it previously omitted *analyze* — and wraps cleanly on narrow windows.
+
 ## [1.0.2] — 2026-06-28
 
 ### Added
@@ -57,6 +72,7 @@ First public release.
 - **Packaging**: portable self-contained `.exe` (zip), Inno Setup installer, and a signed
   MSIX package.
 
+[1.0.3]: https://github.com/Rohithreddy7123/app-releases/releases/tag/threat-model-reviewer-v1.0.3
 [1.0.2]: https://github.com/Rohithreddy7123/app-releases/releases/tag/threat-model-reviewer-v1.0.2
 [1.0.1]: https://github.com/Rohithreddy7123/app-releases/releases/tag/threat-model-reviewer-v1.0.1
 [1.0.0]: https://github.com/Rohithreddy7123/app-releases/releases/tag/threat-model-reviewer-v1.0.0
